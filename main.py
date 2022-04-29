@@ -27,7 +27,7 @@ def fonts(keyword):
 
 
 def german(keyword):
-    f = open(str(pathlib.Path().absolute()) + '/Kochbuch/config/de.txt', 'r')
+    f = open(str(pathlib.Path().absolute()) + '/Cookbook/config/de.txt', 'r')
     read_dict_as_string = f.read()
     f.close()
     change_list_to_dict = ast.literal_eval(read_dict_as_string)
@@ -51,7 +51,7 @@ def a_list_menu(name):
 
 
 def r_conf_path(keyword):
-    f = open(str(pathlib.Path().absolute()) + '/Kochbuch/config/paths.txt', 'r')
+    f = open(str(pathlib.Path().absolute()) + '/Cookbook/config/paths.txt', 'r')
     read_dict_as_string = f.read()
     f.close()
     change_list_to_dict = ast.literal_eval(read_dict_as_string)
