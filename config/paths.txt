@@ -1,0 +1,5 @@
+{'colors': '/Kochbuch/config/colors.txt',
+'fonts': '/Kochbuch/config/fonts.txt',
+'menulist': '/Kochbuch/config/list_menu.txt',
+'recipe': '/Kochbuch/Rezepte/',
+'spoon': '/Kochbuch/config/spoon.png'}

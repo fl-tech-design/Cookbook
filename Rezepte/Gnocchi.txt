@@ -1,0 +1,1 @@
+{'Name': 'Gnocchi', 'Mehl': '200g', 'Eier': '2 Stück', 'Salz': '1 Prise', '': ''}

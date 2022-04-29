@@ -1,0 +1,1 @@
+{'Name': 'Bananasplit', 'Bananen': '2 Stück', '': '', 'Schlagsahne': '250ml', 'Streusel': '1 Prise'}

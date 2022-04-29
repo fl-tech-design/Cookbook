@@ -1,0 +1,4 @@
+{'anthrazit': '#101010', 'black': '#050505', 'grey': '#555753', 'darkgrey': '#2E3436',
+'green': '#0A9A06', 'lightgreen': '#73D216',
+'red': '#CC0000', 'darkred': '#A40000', 'yellow': '#EDD400', 'orange': '#F57900', 'blue': '#0000FF',
+'darkblue': '#02006A' }

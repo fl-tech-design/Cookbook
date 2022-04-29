@@ -1,0 +1,3 @@
+{'Calibri23': ('Calibri', 23), 'Calibri16': ('Calibri', 16),
+'Calibri14': ('Calibri', 14), 'Calibri12' : ('Calibri', 12),
+'Calibri10': ('Calibri', 10), 'Calibri8': ('Calibri', 8)}
