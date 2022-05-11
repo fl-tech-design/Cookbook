@@ -1,1 +1,0 @@
-{'Name': 'Cheesecake', 'Biscuits': '10 Stück', '': ''}

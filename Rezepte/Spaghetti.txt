@@ -1,1 +1,0 @@
-{'Name': 'Spaghetti', '': '', 'Spaghetti Nr.7': '400g', 'Tomatensauce': '1 Glas', 'Knoblauch': '2 Zehen'}
