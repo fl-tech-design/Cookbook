@@ -1,3 +1,8 @@
-{'Calibri24': ('Calibri', 24), 'Calibri18': ('Calibri', 18),
-'Calibri14': ('Calibri', 14), 'Calibri12' : ('Calibri', 12),
-'Calibri10': ('Calibri', 10), 'Calibri8': ('Calibri', 8)}
+{
+'Cal24': ('Calibri', 24),
+'Cal18': ('Calibri', 18),
+'Cal14': ('Calibri', 14),
+'Cal12': ('Calibri', 12),
+'Cal10': ('Calibri', 10),
+'Cal8': ('Calibri', 8)
+}
