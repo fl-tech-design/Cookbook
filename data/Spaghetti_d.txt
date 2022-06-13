@@ -1,1 +1,1 @@
-{'name': 'Spaghetti', 'port': '4','reg': 'Italienisch', 'cat': 'Hauptspeise'}
+{'name': 'Spaghetti', 'port': '4','reg': 'Italienisch', 'cat': 'Hauptspeise', 'time': '35min'}

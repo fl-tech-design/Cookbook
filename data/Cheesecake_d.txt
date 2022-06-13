@@ -1,1 +1,1 @@
-{'name': 'Cheesecake', 'port': '8','reg': 'Italienisch', 'cat': 'Dessert'}
+{'name': 'Cheesecake', 'port': '8','reg': 'Italienisch', 'cat': 'Dessert', 'time': '3h30min'}

@@ -5,6 +5,25 @@ import pathlib
 import ast
 import time
 
+language = 'de'
+
+
+def r_data(key_1, key_2):
+    data_file = open(pa_app + '/Cookbook/config/app_data.txt', 'r')
+    data_from_file = data_file.read()
+    data_file.close()
+    readed_dict = ast.literal_eval(data_from_file)
+    data_dict = readed_dict[key_1]
+    data_val = data_dict[key_2]
+    return data_val
+
+
+def set_fonts():
+    fo_tit = r_data(language, 'Cal24')
+    fo_big = r_data(language, 'Cal14')
+    fo_mid = r_data(language, 'Cal10')
+    fo_sma = r_data(language, 'Cal8')
+
 
 class CookBook:
     def __init__(self):
@@ -21,7 +40,7 @@ class CookBook:
         self.path_app = str(pathlib.Path().absolute())
         self.path_paths = self.path_app + '/Cookbook/config/paths.txt'
         self.path_color = self.path_app + self.r_conf_file(self.path_paths, 'file_colors')
-        self.path_dicts = self.path_app + self.r_conf_file(self.path_paths, 'dicts_recipe')
+        # self.path_dicts = self.path_app + self.r_conf_file(self.path_paths, 'dicts_recipe')
         self.path_fonts = self.path_app + self.r_conf_file(self.path_paths, 'file_fonts')
         self.path_langu = self.path_app + self.r_conf_file(self.path_paths, 'file_language')
         self.path_pics = self.path_app + self.r_conf_file(self.path_paths, 'dir_recipe')
@@ -31,9 +50,9 @@ class CookBook:
         self.path_recipes = self.path_app + self.r_conf_file(self.path_paths, 'dir_recipe')
 
         # create variables
-        self.site_n_rec, self.val_lb_rec, self.ef_name, self.ef_ingr, \
-        self.ef_quant, self.tf_preparation, self.fr_name, self.fr_ingr, self.menubar, \
-        self.filemenu, self.helpmenu, self.file, self.site_e_rec, self.siteabout = (None,) * 14
+        self.site_n_rec, self.val_lb_rec, self.ef_name, self.ef_ingr, self.ef_quant, self.tf_preparation, self.fr_name, \
+        self.fr_ingr, self.menubar, self.filemenu, self.helpmenu, self.file, self.site_e_rec, self.siteabout = (
+                                                                                                                   None,) * 14
         self.bg_app, self.bg_fra, self.fg_app, self.bg_act, self.fg_act, self.dictdata_as_string = ('',) * 6
         self.list_dict = []
         self.dictfile = None
@@ -42,7 +61,6 @@ class CookBook:
 
         # Set configs
         self.set_colors('anthracite', 'black', 'orange')
-        self.set_fonts()
         # Create Mainwindow
         self.root = tk.Tk()
         self.root.geometry('800x600')
@@ -77,7 +95,7 @@ class CookBook:
         # Indicate
         self.pi_act_rec = tk.PhotoImage(file=self.act_pict_path_var.get(), width=400, height=400)
         self.spoon = tk.PhotoImage(file=self.path_app + self.r_conf_file(self.path_paths, 'spoon'), width=200,
-                                            height=100)
+                                   height=100)
         self.pic_qr_path = tk.PhotoImage(file=self.path_app + self.r_conf_file(self.path_paths, 'qr_code'))
 
         self.cr_pic(self.fr_pic, self.pi_act_rec, self.bg_app, 4, 5)
@@ -234,11 +252,10 @@ class CookBook:
         else:
             return False
 
-
     def cr_new_recipefiles(self):
         self.new_rec_name_var.set(self.ef_name.get())
         if not self.check_recipelist():
-            self.file_new_recipe_d = open(self.path_dicts + self.new_rec_name_var.get() + '_d.txt', 'w')
+            self.file_new_recipe_d = open(r_data('paths', 'dir_recipe') + self.new_rec_name_var.get() + '_d.txt', 'w')
             self.file_new_recipe_d.write('')
             self.file_new_recipe_d.close()
             self.file_new_recipe = open(self.path_recipes + self.new_rec_name_var.get() + '.txt', 'w')
@@ -259,7 +276,6 @@ class CookBook:
         self.print_data()
         self.print_event(evt)
 
-
     def print_data(self):
         print('------------------------------------\n'
               ' Start of Printfunction: %s\n'
@@ -268,7 +284,7 @@ class CookBook:
         print('self.path_app:\t\t\t\t%s' % self.path_app)
         print('self.path_paths:\t\t\t%s' % self.path_paths)
         print('self.path_color:\t\t\t%s' % self.path_color)
-        print('self.path_dicts:\t\t\t%s' % self.path_dicts)
+        print('self.path_dicts:\t\t\t%s' % r_data('paths', 'dir_recipe'))
         print('self.path_fonts:\t\t\t%s' % self.path_fonts)
         print('self.path_langu:\t\t\t%s' % self.path_langu)
         print('self.path_pics:\t\t\t\t%s' % self.path_pics)
@@ -319,12 +335,6 @@ class CookBook:
         self.bg_act = self.r_conf_file(self.path_color, f_app)
         self.fg_act = self.r_conf_file(self.path_color, b_app)
 
-    def set_fonts(self):
-        self.fo_tit = self.r_conf_file(self.path_fonts, 'Calibri24')
-        self.fo_big = self.r_conf_file(self.path_fonts, 'Calibri14')
-        self.fo_mid = self.r_conf_file(self.path_fonts, 'Calibri10')
-        self.fo_sma = self.r_conf_file(self.path_fonts, 'Calibri8')
-
     def set_act_rec_pic(self, image):
         self.pi_act_rec['file'] = self.path_pics + '/' + image + '.png'
 
@@ -348,4 +358,12 @@ class CookBook:
 
 
 if __name__ == '__main__':
+    # define the paths of the app
+    pa_app = str(pathlib.Path().absolute())
+
+    # set configs of the app
+    set_fonts()
+
+    # define the var
+
     app = CookBook()

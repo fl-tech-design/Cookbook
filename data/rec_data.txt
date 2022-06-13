@@ -1,0 +1,51 @@
+{'Gnocchi': {
+'name': 'Gnocchi',
+'port': '4',
+'reg': 'Italienisch',
+'cat': 'Hauptspeise',
+'time': '2h30min',
+'ingr':
+'Kartoffeln  mehlig       			750g
+Eier                    			1 St
+Salz                   			1 Prise
+Muskatnuss             			wenig
+Mehl                    			180-200g',
+'prep':
+'1.  	Kartoffeln im Dampfkochtopf 6-10 Minuten weich
+    	kochen.Noch heiss schälen und durch das Passe
+    	vite treiben. Restliche Zutaten darunterrühren.
+    	Bei Bedarf noch so viel Mehl beifügen, bis der
+    	Teig nicht  mehr an den Händen klebt.
+
+2.  	Masse auf wenig Mehl zu daumendicken Rollen
+    	formen, diese in 2 cm lange Stücke schneiden.
+    	Nach Belieben mit dem Daumen über eine Gabel
+    	rollen, sodass auf der einen Seite ein Rillen-
+    	muster und auf der anderen Seite eine Delle
+    	entsteht. Auf ein bemehltes Küchentuch legen.
+
+3.  	Gnocchi portionenweise in reichlich Salz-
+    	wasser 5 Minuten ziehen lassen, bis sie an
+    	die Oberfläche steigen. Mit einer Schaumkelle
+    	herausnehmen, abtropfen lassen und warm stellen.'
+},
+'Spaghetti': {
+'name': 'Spaghetti',
+'port': '4',
+'reg': 'Italienisch',
+'cat': 'Hauptspeise',
+'time': '35min',
+'ingr':
+'Spaghetti		400g
+Tomaten		4 Stück
+Knoblauch		1 Zehe',
+'prep':
+'1.	Wasser aufkochen mit Salz abschmecken.
+2.  	Spaghetti in Die Pfanne und ein wenig
+    	Olivenöl dazu geben.
+3.  	Spaghetti nach ca 10min probieren und
+    	je nach belieben dann abgiessen.'
+}
+
+
+}
