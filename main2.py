@@ -9,7 +9,7 @@ def a_app_data():
     global app_data
     app_data["app"] = {"act_lang": language}
     app_data["app"] = {"app_state": app_state}
-    w_data(app_data)
+    w_data("app")
 
 
 def a_rec_data(key1):
@@ -44,8 +44,8 @@ def r_rec_data():
 
 def set_app_state(state):
     global app_data
-    app_data['app']['app_state'] = state
-    print("appdata", app_data)
+    app_data["app"]["app_state"] = state
+    print("appstate", app_data["app"]["app_state"])
 
 
 def set_colors(b_app, b_fra, f_app):
@@ -69,55 +69,84 @@ def w_data(file):
 
 class CB:
     def __init__(self):
-        self.la_reg = None
-        self.la_ingr, self.tf_ingr, self.tf_prep, self.la_prep = (None,) * 4
-        self.la_name, self.la_port, self.la_time, self.la_cate = (None,) * 4
-        self.en_name, self.en_port, self.en_time, self.en_cate, self.en_reg = (None,) * 5
-        self.fr_preparation, self.fr_pict, self.fr_ingredients, self.fr_info = (None,) * 4
         self.fr_choose, self.la_choos, self.lb_choose_rec = (None,) * 3
         self.la_titel = None
         self.menubar, self.filemenu, self.helpmenu, self.language_menu = (None,) * 4
-
+        # create mainwindow
         self.root = tk.Tk()
         self.root.title(app_data[language]["cookbook"])
         self.root.config(width=1200, height=600, bg=fg_app)
         self.root.resizable(width=False, height=False)
-
+        # define pictures
         self.pi_rec_a = tk.PhotoImage(file=pa_startpic)
         self.logo_pic = tk.PhotoImage(file=pa_logo)
         self.spoon_pic = tk.PhotoImage(file=pa_spoonpic)
+        # create frames
+        self.fr_bott = tk.Frame(self.root, width=1200, height=40, bg=bg_app)
+        self.fr_ingr = tk.Frame(self.root, width=333, height=397, bg=bg_app)
+        self.fr_info = tk.Frame(self.root, width=333, height=150, bg=bg_app)
+        self.fr_pic = tk.Frame(self.root, width=333, height=333, bg=bg_app)
+        self.fr_prep = tk.Frame(self.root, width=600, height=397, bg=bg_app)
+        self.fr_top = tk.Frame(self.root, width=1200, height=55, bg=bg_app)
+        fr_list = [self.fr_bott, self.fr_ingr, self.fr_info, self.fr_prep, self.fr_top, self.fr_pic]
+        fr_x = [0, 335, 0, 670, 0, 0]
+        fr_y = [560, 160, 58, 160, 0, 220]
+        for index in range(len(fr_list)):
+            fr_list[index].place(x=fr_x[index], y=fr_y[index])
+        tk.Frame(self.fr_pic, width=323, height=323, bg=bg_fra).place(x=5, y=12)
 
-        # create all frames
-        self.fr_bottom = tk.Frame(width=1200, height=40, bg=bg_app)
-        self.fr_bottom.place(x=0, y=560)
-        self.fr_top = tk.Frame(width=1200, height=55, bg=bg_app)
-        self.fr_top.place(x=0, y=0)
-
-        # create all Labels
-        self.la_logo = tk.Label(self.fr_bottom, image=self.logo_pic, bg=bg_app)
-        self.la_logo.place(x=5, y=5)
-        self.la_titel = tk.Label(self.fr_top, text=app_data[language]["la_titel"], font=font24,
-                                 bg=bg_app, fg=fg_app)
-        self.la_titel.place(x=5, y=5)
+        # create Labels
+        self.la_time = tk.Label(self.fr_info, text=app_data[language]["time"], font=font10, bg=bg_app, fg=fg_app)
+        self.la_cate = tk.Label(self.fr_info, text=app_data[language]["category"], font=font10, bg=bg_app, fg=fg_app)
+        self.la_reg = tk.Label(self.fr_info, text=app_data[language]["region"], font=font10, bg=bg_app, fg=fg_app)
+        self.la_ingr = tk.Label(self.fr_ingr, text=app_data[language]["la_ingr"], font=font14, bg=bg_app, fg=fg_app)
+        self.la_logo = tk.Label(self.fr_bott, image=self.logo_pic, bg=bg_app)
+        self.la_name = tk.Label(self.fr_info, text=app_data[language]["name"], font=font10, bg=bg_app, fg=fg_app)
+        self.la_pic = tk.Label(self.fr_pic, image=self.pi_rec_a, width=300, height=300)
+        self.la_port = tk.Label(self.fr_info, text=app_data[language]["portions"], font=font10, bg=bg_app, fg=fg_app)
+        self.la_prep = tk.Label(self.fr_prep, text=app_data[language]["preparation"], font=font14, bg=bg_app, fg=fg_app)
+        self.la_titel = tk.Label(self.fr_top, text=app_data[language]["la_titel"], font=font24, bg=bg_app, fg=fg_app)
         self.la_spoon = tk.Label(self.fr_top, image=self.spoon_pic, bg=bg_app)
+        # place labels
+        self.la_pic.place(x=15, y=23)
         self.la_spoon.place(x=990, y=5)
+        # frame titels
+        for label in [self.la_logo, self.la_ingr, self.la_prep, self.la_titel]:
+            label.place(x=5, y=5)
+        # info labels
+        y_la_info = 10
+        for la_info in [self.la_name, self.la_port, self.la_time, self.la_cate, self.la_reg]:
+            la_info.place(x=5, y=y_la_info)
+            y_la_info += 28
+        # create textfields
+        self.tf_cat = tk.Text(self.fr_info, font=font10, height=1, width=25, bg=bg_app, fg=fg_app, relief='flat')
+        self.tf_ingr = tk.Text(self.fr_ingr, font=font10, height=20, width=40, bg=bg_app, fg=fg_app)
+        self.tf_name = tk.Text(self.fr_info, font=font10, height=1, width=25, bg=bg_app, fg=fg_app, relief='flat')
+        self.tf_time = tk.Text(self.fr_info, font=font10, height=1, width=25, bg=bg_app, fg=fg_app, relief='flat')
+        self.tf_port = tk.Text(self.fr_info, font=font10, height=1, width=25, bg=bg_app, fg=fg_app, relief='flat')
+        self.tf_prep = tk.Text(self.fr_prep, font=font10, height=20, width=60, bg=bg_app, fg=fg_app)
+        self.tf_reg = tk.Text(self.fr_info, font=font10, height=1, width=25, bg=bg_app, fg=fg_app, relief='flat')
+        # place textfields
+        self.tf_ingr.place(x=5, y=40)
+        self.tf_prep.place(x=5, y=40)
+        y_tf_info = 10
+        for tf_info in [self.tf_name, self.tf_port, self.tf_time, self.tf_cat, self.tf_reg]:
+            tf_info.place(x=100, y=y_tf_info)
+            y_tf_info += 28
 
         # create buttons
-        self.bu_left = tk.Button(self.fr_bottom, text=app_data[language]['new_rec'], bg=bg_app, fg=fg_app,
+        self.bu_left = tk.Button(self.fr_bott, text=app_data[language]['new_rec'], bg=bg_app, fg=fg_app,
                                  width=25, activebackground=bg_act, activeforeground=fg_act,
                                  command=self.but_l_func)
-        self.bu_left.place(x=700, y=5)
-        self.bu_right = tk.Button(self.fr_bottom, text=app_data[language]['edit_rec'], bg=bg_app, fg=fg_app,
+        self.bu_right = tk.Button(self.fr_bott, text=app_data[language]['edit_rec'], bg=bg_app, fg=fg_app,
                                   width=25, activebackground=bg_act, activeforeground=fg_act,
                                   command=self.but_r_func)
+        # place buttons
+        self.bu_left.place(x=700, y=5)
         self.bu_right.place(x=950, y=5)
 
         self.cr_menubar()
-        self.cr_fr_info()
-        self.cr_fr_picture()
         self.fr_choose_rec()
-        self.cr_fr_ingredients()
-        self.cr_fr_preparation()
         self.set_but_state()
         self.root.mainloop()
 
@@ -131,26 +160,26 @@ class CB:
 
     def but_l_func(self):
         self.set_but_text()
-        if app_state <= 1:
+        if app_data["app"]["app_state"] <= 1:
             self.set_but_state()
             self.site_new_rec()
-        elif app_state == 2:
+        elif app_data["app"]["app_state"] == 2:
             self.set_but_state()
             self.save_new_rec()
-        if app_state == 4:
+        if app_data["app"]["app_state"] == 4:
             self.save_edi_rec()
             self.site_my_rec()
 
     def but_r_func(self):
         if app_data["app"]["app_state"] == 1:
             self.site_edit_rec()
-        elif app_state == 2 or app_state == 4:
+        elif app_data["app"]["app_state"] == 2:
             self.ask_not_save()
-        elif app_state == 3 or app_state == 5:
+        elif app_data["app"]["app_state"] == 3:
             self.site_my_rec()
 
     def clear_all_fields(self):
-        for item in [self.en_name, self.en_port, self.en_time, self.en_reg, self.en_cate, self.tf_ingr, self.tf_prep]:
+        for item in [self.tf_name, self.tf_port, self.tf_time, self.tf_reg, self.tf_cat, self.tf_ingr, self.tf_prep]:
             item.delete('0.1', 'end')
 
     def cr_menubar(self):
@@ -209,78 +238,13 @@ class CB:
         print(evt)
 
     def fill_all_fields(self):
-        en_list = [self.en_name, self.en_port, self.en_time, self.en_cate, self.en_reg, self.tf_ingr, self.tf_prep]
+        en_list = [self.tf_name, self.tf_port, self.tf_time, self.tf_cat, self.tf_reg, self.tf_ingr, self.tf_prep]
         keylist = ['name', 'port', 'time', 'cat', 'reg', 'ingr', 'prep']
         self.field_state(1)
         self.clear_all_fields()
         for i in range(len(en_list)):
             en_list[i].insert('0.1', rec_data[rec_name][keylist[i]])
         self.field_state(0)
-
-    def cr_en_info(self):
-        self.en_name = tk.Text(self.fr_info, font=font10, height=1, width=25,
-                               bg=bg_app, fg=fg_app, relief='flat')
-        self.en_port = tk.Text(self.fr_info, font=font10, height=1, width=25,
-                               bg=bg_app, fg=fg_app, relief='flat')
-        self.en_time = tk.Text(self.fr_info, font=font10, height=1, width=25,
-                               bg=bg_app, fg=fg_app, relief='flat')
-        self.en_cate = tk.Text(self.fr_info, font=font10, height=1, width=25,
-                               bg=bg_app, fg=fg_app, relief='flat')
-        self.en_reg = tk.Text(self.fr_info, font=font10, height=1, width=25,
-                              bg=bg_app, fg=fg_app, relief='flat')
-        y_var = 10
-        for i in [self.en_name, self.en_port, self.en_time, self.en_cate, self.en_reg]:
-            i.place(x=100, y=y_var)
-            y_var += 28
-
-    def cr_fr_info(self):
-        self.fr_info = tk.Frame(width=333, height=150, bg=bg_app)
-        self.fr_info.place(x=0, y=58)
-        self.cr_la_info()
-        self.cr_en_info()
-
-    def cr_fr_ingredients(self):
-        self.fr_ingredients = tk.Frame(width=333, height=397, bg=bg_app)
-        self.fr_ingredients.place(x=335, y=160)
-        self.la_ingr = tk.Label(self.fr_ingredients, text=app_data[language]["la_ingr"],
-                                font=font14, bg=bg_app, fg=fg_app)
-        self.la_ingr.place(x=5, y=5)
-        self.tf_ingr = tk.Text(self.fr_ingredients, font=font10,
-                               height=20, width=40, bg=bg_app, fg=fg_app)
-        self.tf_ingr.place(x=5, y=40)
-
-    def cr_fr_picture(self):
-        self.fr_pict = tk.Frame(width=333, height=347, bg=bg_app)
-        self.fr_pict.place(x=0, y=210)
-        tk.Frame(self.fr_pict, width=323, height=323, bg=bg_fra).place(x=5, y=12)
-        act_pic = tk.Label(self.fr_pict, image=self.pi_rec_a, width=300, height=300)
-        act_pic.place(x=15, y=23)
-
-    def cr_fr_preparation(self):
-        self.fr_preparation = tk.Frame(width=600, height=397, bg=bg_app)
-        self.fr_preparation.place(x=670, y=160)
-        self.la_prep = tk.Label(self.fr_preparation, text=app_data[language]["preparation"],
-                                font=font14, bg=bg_app, fg=fg_app)
-        self.la_prep.place(x=5, y=5)
-        self.tf_prep = tk.Text(self.fr_preparation, font=font10, height=20, width=60, bg=bg_app, fg=fg_app)
-        self.tf_prep.place(x=5, y=40)
-
-    def cr_la_info(self):
-        self.la_name = tk.Label(self.fr_info, text=app_data[language]["name"], font=font10,
-                                bg=bg_app, fg=fg_app)
-        self.la_port = tk.Label(self.fr_info, text=app_data[language]["portions"], font=font10,
-                                bg=bg_app, fg=fg_app)
-        self.la_time = tk.Label(self.fr_info, text=app_data[language]["time"], font=font10,
-                                bg=bg_app, fg=fg_app)
-        self.la_cate = tk.Label(self.fr_info, text=app_data[language]["category"], font=font10,
-                                bg=bg_app, fg=fg_app)
-        self.la_reg = tk.Label(self.fr_info, text=app_data[language]["region"], font=font10,
-                               bg=bg_app, fg=fg_app)
-
-        y_var = 10
-        for i in [self.la_name, self.la_port, self.la_time, self.la_cate, self.la_reg]:
-            i.place(x=5, y=y_var)
-            y_var += 28
 
     def insert_lbox_rec(self):
         rec_list = list(rec_data.keys())
@@ -298,34 +262,29 @@ class CB:
 
     def site_my_rec(self):
         self.la_titel['text'] = app_data[language]["la_titel"]
-
-        self.field_state(1)
-        self.fill_all_fields()
-        self.field_state(0)
-
-        set_app_state(1)
+        if app_data["app"]["app_state"] > 0:
+            self.field_state(1)
+            self.fill_all_fields()
+            self.field_state(0)
         self.set_but_state()
         self.set_but_text()
-
         print('...end of site_my_rec function...')
 
     def site_new_rec(self):
-        self.la_titel['text'] = app_data[language]["new_rec"]
+        set_app_state(2)
 
+        self.la_titel['text'] = app_data[language]["new_rec"]
         self.field_state(1)
         self.clear_all_fields()
-        set_app_state(2)
         self.set_but_text()
-        self.set_but_state()
-
         print('...end of site_new_rec function...')
 
     def site_edit_rec(self):
+        set_app_state(3)
+
         self.la_titel['text'] = app_data[language]["edit_rec"]
         self.field_state(1)
-        set_app_state(4)
         self.set_but_text()
-        self.set_but_state()
         print('...end of site_edit_rec function...')
 
     def set_but_state(self):
@@ -335,7 +294,7 @@ class CB:
             self.bu_right['state'] = 'normal'
 
     def set_but_text(self):
-        if app_state <= 1:
+        if app_data["app"]["app_state"] <= 1:
             self.bu_left['text'] = app_data[language]["new_rec"]
             self.bu_right['text'] = app_data[language]["edit_rec"]
         else:
@@ -352,6 +311,7 @@ class CB:
     def set_language(self, lang):
         global language
         app_data['app']['act_lang'] = lang
+        print(app_data["app"]["act_lang"])
         language = app_data["app"]["act_lang"]
         self.cr_menubar()
         self.set_but_text()
@@ -361,7 +321,7 @@ class CB:
         self.pi_rec_a['file'] = pa_app + '/Cookbook/Bilder/' + rec_name + '.png'
 
     def field_state(self, s):
-        for item in [self.en_name, self.en_port, self.en_time, self.en_cate, self.tf_ingr, self.tf_prep]:
+        for item in [self.tf_name, self.tf_port, self.tf_time, self.tf_cat, self.tf_ingr, self.tf_prep]:
             if s == 0:
                 item['state'] = 'disabled'
             else:
@@ -379,25 +339,22 @@ if __name__ == '__main__':
     app_data = r_app_data()
     app_state = app_data["app"]["app_state"]
     rec_data = r_rec_data()
-
+    # define picture paths
     pa_startpic = pa_app + app_data['paths']['startpic']
     pa_spoonpic = pa_app + app_data['paths']['spoonpic']
     pa_logo = pa_app + app_data['paths']['logo']
-
-    # define the variables
+    # define the global variables
     bg_app, bg_act, bg_fra, fg_app, fg_act = ('',) * 5  # colors
     language = app_data['app']['act_lang']
     rec_name, rec_port, rec_time, rec_reg, rec_cat, rec_ingr, rec_prep = ('',) * 7
-
+    # define fonts
     font24 = ("Calibri", 24)
     font18 = ("Calibri", 18)
     font14 = ("Calibri", 14)
     font10 = ("Calibri", 10)
     font8 = ("Calibri", 8)
-
     # config the App
     set_colors('anthracite', 'black', 'lightgreen')
-
     # Start the App
     app = CB()
     app.quit_app()
