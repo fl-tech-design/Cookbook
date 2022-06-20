@@ -1,10 +1,83 @@
-{"Gnocchi": {"name": "Gnocchi", "port": "4", "time": "2h30min", "reg": "Italien", "cat": "Hauptspeise", "ingr":  "Kartoffeln  mehlig       \t\t\t750g\nEier                    \t\t\t1 St\nSalz                   \t\t\t1 Prise\nMuskatnuss             \t\t\twenig\nMehl                    \t\t\t180-200g", "prep":  "1.  \tKartoffeln im Dampfkochtopf 6-10 Minuten weich\n    \tkochen.Noch heiss schälen und durch das Passe\n    \tvite treiben. Restliche Zutaten darunterrühren.\n    \tBei Bedarf noch so viel Mehl beifügen, bis der\n    \tTeig nicht  mehr an den Händen klebt.\n\n2.  \tMasse auf wenig Mehl zu daumendicken Rollen\n    \tformen, diese in 2 cm lange Stücke schneiden.\n    \tNach Belieben mit dem Daumen über eine Gabel\n    \trollen, sodass auf der einen Seite ein Rillen-\n    \tmuster und auf der anderen Seite eine Delle\n    \tentsteht. Auf ein bemehltes Küchentuch legen.\n\n3.  \tGnocchi portionenweise in reichlich Salz-\n    \twasser 5 Minuten ziehen lassen, bis sie an\n    \tdie Oberfläche steigen. Mit einer Schaumkelle\n    \therausnehmen, abtropfen lassen und warm stellen."},
-  "Pizza": {"name": "Pizza", "port": "2", "time": "45min", "reg": "Italien", "cat": "Fastfood", "ingr":  "", "prep":  ""},
-  "Hamburger": {"name": "Hamburger", "port": "2", "time": "30min", "reg": "America", "cat": "Fastfood", "ingr":  "", "prep":  ""},
-  "Spaghetti": {"name": "Spaghetti", "port": "", "time": "", "reg": "", "cat": "", "ingr":  "Hauptspeise", "prep":  "1.\tWasser aufkochen mit Salz abschmecken.\n2.  \tSpaghetti in Die Pfanne und ein wenig\n    \tOlivenöl dazu geben.\n3.  \tSpaghetti nach ca 10min probieren und\n    \tje nach belieben dann abgiessen.\n4.\tEssen..."},
-  "Erdbeerkuchen": {"name": "Erdebeerkuchen", "port": "8", "time": "1h30min", "reg": "Italienisch", "cat": "Dessert", "ingr": "Erdbeeren\t\t\t500g\nZucker\t\t\t100g", "prep": "1. Erdbeeren in 4tel schneiden und mit Zucker bestreuen"},
-  "Antipasto": {"name": "Antipasto", "port": "2", "time": "30min", "reg": "Italien", "cat": "Vorspeisen", "ingr":  "", "prep":  ""},
-  "Cake": {"name": "Cake", "port": "2", "time": "1h30min", "reg": "", "cat": "Dessert", "ingr":  "", "prep":  ""},
-  "Cheesecake": {"name": "Cheesecake", "port": "8", "time": "3h30min", "reg": "Amerika", "cat": "Dessert", "ingr":  "", "prep":  ""},
-  "Erdbeereis": {"name": "Erdbeereis", "port": "8", "time": "3h30min", "reg": "", "cat": "Dessert", "ingr":  "", "prep":  ""}
+{
+  "Gnocchi": {
+    "name": "Gnocchi",
+    "port": "4",
+    "time": "2h30min",
+    "reg": "Italien",
+    "cat": "Hauptspeise",
+    "ingr": "Kartoffeln  mehlig       \t\t\t750g\nEier                    \t\t\t1 St\nSalz                   \t\t\t1 Prise\nMuskatnuss             \t\t\twenig\nMehl                    \t\t\t180-200g",
+    "prep": "1.  \tKartoffeln im Dampfkochtopf 6-10 Minuten weich\n    \tkochen.Noch heiss sch\u00e4len und durch das Passe\n    \tvite treiben. Restliche Zutaten darunterr\u00fchren.\n    \tBei Bedarf noch so viel Mehl beif\u00fcgen, bis der\n    \tTeig nicht  mehr an den H\u00e4nden klebt.\n\n2.  \tMasse auf wenig Mehl zu daumendicken Rollen\n    \tformen, diese in 2 cm lange St\u00fccke schneiden.\n    \tNach Belieben mit dem Daumen \u00fcber eine Gabel\n    \trollen, sodass auf der einen Seite ein Rillen-\n    \tmuster und auf der anderen Seite eine Delle\n    \tentsteht. Auf ein bemehltes K\u00fcchentuch legen.\n\n3.  \tGnocchi portionenweise in reichlich Salz-\n    \twasser 5 Minuten ziehen lassen, bis sie an\n    \tdie Oberfl\u00e4che steigen. Mit einer Schaumkelle\n    \therausnehmen, abtropfen lassen und warm stellen."
+  },
+  "Pizza": {
+    "name": "Pizza",
+    "port": "2",
+    "time": "45min",
+    "reg": "Italien",
+    "cat": "Fastfood",
+    "ingr": "",
+    "prep": ""
+  },
+  "Hamburger": {
+    "name": "Hamburger",
+    "port": "2",
+    "time": "30min",
+    "reg": "America",
+    "cat": "Fastfood",
+    "ingr": "",
+    "prep": ""
+  },
+  "Spaghetti": {
+    "name": "Spaghetti",
+    "port": "2",
+    "time": "30min",
+    "cat": "Hauptspeise",
+    "reg": "Italien",
+    "ingr": "Hauptspeise",
+    "prep": "1.\tWasser aufkochen mit Salz abschmecken.\n2.  \tSpaghetti in Die Pfanne und ein wenig\n    \tOliven\u00f6l dazu geben.\n3.  \tSpaghetti nach ca 10min probieren und\n    \tje nach belieben dann abgiessen.\n4.\tEssen..."
+  },
+  "Erdbeerkuchen": {
+    "name": "Erdebeerkuchen",
+    "port": "8",
+    "time": "1h30min",
+    "reg": "Italienisch",
+    "cat": "Dessert",
+    "ingr": "Erdbeeren\t\t\t500g\nZucker\t\t\t100g",
+    "prep": "1. Erdbeeren in 4tel schneiden und mit Zucker bestreuen"
+  },
+  "Antipasto": {
+    "name": "Antipasto",
+    "port": "2",
+    "time": "30min",
+    "cat": "Vorspeisen",
+    "reg": "Italien",
+    "ingr": "Rohschinken\t\t\t100g\nOliven mit Sardellen\t\t\t1 Dose\n",
+    "prep": "dsd"
+  },
+  "Cake": {
+    "name": "Cake",
+    "port": "2",
+    "time": "1h30min",
+    "reg": "",
+    "cat": "Dessert",
+    "ingr": "",
+    "prep": ""
+  },
+  "Cheesecake": {
+    "name": "Cheesecake",
+    "port": "8",
+    "time": "3h30min",
+    "reg": "Amerika",
+    "cat": "Dessert",
+    "ingr": "",
+    "prep": ""
+  },
+  "Erdbeereis": {
+    "name": "Erdbeereis",
+    "port": "8",
+    "time": "3h30min",
+    "reg": "",
+    "cat": "Dessert",
+    "ingr": "",
+    "prep": ""
+  }
 }
