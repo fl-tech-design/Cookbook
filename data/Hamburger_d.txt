@@ -1,1 +1,0 @@
-{'name': 'Hamburger', 'port': '2','reg': 'Italienisch', 'cat': 'Hauptspeise', 'time': '2h'}

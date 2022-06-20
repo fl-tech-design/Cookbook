@@ -1,8 +1,0 @@
-{
-'Cal24': ('Calibri', 24),
-'Cal18': ('Calibri', 18),
-'Cal14': ('Calibri', 14),
-'Cal12': ('Calibri', 12),
-'Cal10': ('Calibri', 10),
-'Cal8': ('Calibri', 8)
-}
